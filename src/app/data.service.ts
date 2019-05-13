@@ -31,22 +31,19 @@ export class DataService {
     // this.data = this.xmlDoc.getAttribute("rev")[0].childNodes[0].nodeValue;
     return this.data
   }
+
 capital_letter(str) 
   {
-      str = str.split(" ");
-  
+    str = str.split(" ")
       for (let i = 0, x = str.length; i < x; i++) {
           str[i] = str[i][0].toUpperCase() + str[i].substr(1);
       }
-  
-      return str.join(" ");
+      return str.join("_");
   }
   
   register(form) {
     this.form = form.value[Object.keys(form.value)[0]];
-    
-    this.actors = this.capital_letter(this.form)
-    this.text = this.actors.replace(/\s/g, "_")
+    this.text = this.capital_letter(this.form)
     console.log(this.form, `http://dbpedia.org/page/${this.text}`);
   }
 
