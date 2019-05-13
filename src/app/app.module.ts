@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+//import { BrowserAnimationsModule } from '@angular/animations';
 import { AppComponent } from './app.component';
 import { DataService } from './data.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatCardModule } from '@angular/material';
 
 
 @NgModule({
@@ -14,7 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+   // BrowserAnimationsModule,
+    MatCardModule
 
   ],
   providers: [
