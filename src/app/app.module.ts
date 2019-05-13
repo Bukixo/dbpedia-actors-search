@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { DataService } from './data.service';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -10,7 +11,9 @@ import { DataService } from './data.service';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
+
   ],
   providers: [
     DataService

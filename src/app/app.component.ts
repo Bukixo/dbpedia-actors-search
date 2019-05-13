@@ -11,4 +11,8 @@ export class AppComponent {
     this.dataService = dataService
   }
 actors = this.dataService.getActors()
+
+register(form) {
+  console.log(form.value);
+}
 }
