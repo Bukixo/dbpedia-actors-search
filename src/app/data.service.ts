@@ -7,14 +7,24 @@ import { getLocaleDateFormat } from '@angular/common';
 export class DataService {
 
   private actors: any
+  private parser: any
+  private xmlDoc : any
+  private data: any
+  private text: any
 
   getActors() {
-    this.actors = [
-      {
-        "name": "Halle Berry",
-        "movies": ["Frankie_&_Alice", "The_Flintstones_(film)", "Monster's_Ball"]
-      }
-    ]
-    return this.actors
+      this.text = "<bookstore><book>" +
+      "<title>Everyday Italian</title>" +
+      "<author>Giada De Laurentiis</author>" +
+      "<year>2005</year>" +
+      "</book></bookstore>";
+
+    this.parser = new DOMParser();
+    this.xmlDoc = this.parser.parseFromString(this.text, "text/xml");
+    this.data = this.xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+    
+    return this.data
   }
+
+
 }

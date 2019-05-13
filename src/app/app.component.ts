@@ -6,13 +6,18 @@ import { DataService } from './data.service'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
+  
   constructor( private dataService: DataService) {
     this.dataService = dataService
   }
-actors = this.dataService.getActors()
+data = this.dataService.getActors()
 
 register(form) {
-  console.log(form.value);
+  console.log( this.data);
 }
+
+
+
 }
