@@ -15,19 +15,11 @@ export class DataService {
   private text: any
   private form: any
 
-
-  
-
   apiUrl = `http://dbpedia.org/page/${this.text}`
-
-
 
   constructor(private http: HttpClient) {}
 
-
   getActors() {
-    
-
       // this.text = "<bookstore><book>" +
       // "<title>Everyday Italian</title>" +
       // "<author>Giada De Laurentiis</author>" +
@@ -39,18 +31,22 @@ export class DataService {
     // this.data = this.xmlDoc.getAttribute("rev")[0].childNodes[0].nodeValue;
     return this.data
   }
-//   titleCase(str) {
-//    var splitStr = str.toLowerCase().split(' ');
-//    for (var i = 0; i < splitStr.length; i++) {
-//        splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
-//    }
-//    // Directly return the joined string
-//    return splitStr.join(' '); 
-// }
+capital_letter(str) 
+  {
+      str = str.split(" ");
+  
+      for (let i = 0, x = str.length; i < x; i++) {
+          str[i] = str[i][0].toUpperCase() + str[i].substr(1);
+      }
+  
+      return str.join(" ");
+  }
+  
   register(form) {
     this.form = form.value[Object.keys(form.value)[0]];
-    this.actors = this.form.replace(/\s/g, "_")
-    this.text = this.actors.charAt(0).toUpperCase() +this.actors.slice(1);
+    
+    this.actors = this.capital_letter(this.form)
+    this.text = this.actors.replace(/\s/g, "_")
     console.log(this.form, `http://dbpedia.org/page/${this.text}`);
   }
 
